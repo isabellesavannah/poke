@@ -6,7 +6,16 @@
       </div>
       <img class="card-img-top" :src="state.poke.sprites.front_default" alt="Card image cap">
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text">
+          <span>{{state.poke.types[0].type.name}} </span>
+          <span v-if="state.poke.types[1]">{{' ' + state.poke.types[1].type.name}}</span>
+        </p>
+        <p>
+          Height: {{state.poke.height}}
+        </p>
+        <p>
+          Weight: {{state.poke.weight}}
+        </p>
       </div>
     </div>
   </div>
