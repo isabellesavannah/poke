@@ -1,10 +1,36 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <h1>Catch Your Pokemon</h1>
+        <poke-list/>
+      </div>
+      <div class="col-9">
+        <router-view/>
+      </div>
+    </div>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import { reactive } from '@vue/reactivity'
+import pokeList from './components/pokeList.vue'
+import { computed } from '@vue/runtime-core'
+import { AppState } from './AppState'
+export default {
+  components: { pokeList },
+  setup () {
+    // eslint-disable-next-line no-unused-vars
+    const state = reactive({
+      AppState: computed(() => AppState)
+    })
+    return {
+      state
+    }
+  }
+
+}
+</script>
 
 <style>
 #app {
